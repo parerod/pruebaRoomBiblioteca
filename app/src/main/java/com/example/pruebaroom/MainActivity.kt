@@ -12,8 +12,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var casaDelLibro = Biblioteca("La casa del Libro","Calle Sierpes")
-        var entreParques = Biblioteca("La de entre Parques","Entre parques de Pino Montano")
+        var casaDelLibro = Biblioteca("La casa del Libro","sevilla")
+        var entreParques = Biblioteca("La de entre Parques","sevilla")
 
         var laLeyenda= Libro("La leyenda del hechicero","Taran Matharu",506,1)
         var elImperioFinal= Libro("El imperio Final","Brandon Sanderson",853,2)
@@ -29,11 +29,19 @@ class MainActivity : AppCompatActivity() {
         daoLibro.addLibro(elProblemaFinal)
         val lista: List<Biblioteca> = daoBiblioteca.getBibliotecas()
 
+        val idBiblios : MutableList<Int> = mutableListOf(1,3)
+
         lista.forEach {
             val direc: String? = it.direccion
             if (direc != null) {
                 Log.d("libroId",direc)
             }
+        }
+
+        val biblios = daoBiblioteca.getBibliotecaListaId(idBiblios)
+
+        biblios.forEach {
+            Log.d("bibli",it.nombre)
         }
 
 
