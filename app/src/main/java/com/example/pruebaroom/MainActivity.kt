@@ -44,6 +44,12 @@ class MainActivity : AppCompatActivity() {
             Log.d("bibli",it.nombre)
         }
 
+        val librosNombres = daoBiblioteca.getBibliotecaLibros(1)
+
+        librosNombres.forEach {
+            Log.d("nombreBiblio",it.toString())
+        }
+
 
     }
 }
